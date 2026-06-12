@@ -1,0 +1,87 @@
+# ETHICAL USE NOTICE
+
+This file applies to all content within this repository.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## PURPOSE
+
+This repository exists solely for EDUCATIONAL and DEFENSIVE security purposes.
+All notes, scripts, commands, tools, and references are compiled to help the
+maintainer and readers learn how systems work, how they can fail, and how to
+protect them better.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## AUTHORIZED USE
+
+You MAY use the content in this repository to:
+
+  [✔] Study for certifications (CEH, OSCP, CompTIA Security+, eJPT, etc.)
+  [✔] Practice on your own personal machines or virtual machines
+  [✔] Work within authorized lab platforms:
+       - TryHackMe (tryhackme.com)
+       - Hack The Box (hackthebox.com)
+       - PentesterLab
+       - PortSwigger Web Security Academy
+       - OWASP WebGoat / DVWA / Metasploitable
+       - VulnHub machines
+  [✔] Use on systems you LEGALLY OWN
+  [✔] Use on systems where you have EXPLICIT WRITTEN PERMISSION from the owner
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## PROHIBITED USE
+
+You MUST NOT use the content in this repository to:
+
+  [✘] Access, scan, or probe systems without explicit authorization
+  [✘] Disrupt, degrade, or damage any live service or network
+  [✘] Harvest, steal, or misuse personal or financial data
+  [✘] Conduct phishing, social engineering, or fraud
+  [✘] Bypass DRM, authentication, or access controls illegally
+  [✘] Assist any malicious actor, group, or campaign
+  [✘] Violate any applicable local, national, or international law
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## LEGAL DISCLAIMER
+
+The maintainer of this repository:
+
+  - Does NOT condone or support any illegal activity
+  - Is NOT responsible for how others choose to use this content
+  - Assumes NO liability for damages arising from misuse of this material
+  - Makes NO guarantee that content is complete, current, or error-free
+
+By accessing this repository, you agree that:
+
+  1. You will use this knowledge only for lawful and ethical purposes
+  2. You are solely responsible for your own actions
+  3. You understand that unauthorized access to computer systems is a crime
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## RELEVANT LAWS (FOR REFERENCE)
+
+  India       — Information Technology Act, 2000 (IT Act)
+                Section 66 — Computer-related offences
+                Section 43 — Unauthorized access penalty
+
+  USA         — Computer Fraud and Abuse Act (CFAA), 18 U.S.C. § 1030
+
+  UK          — Computer Misuse Act 1990
+
+  EU          — Directive on Attacks Against Information Systems (2013/40/EU)
+
+  Global      — Budapest Convention on Cybercrime
+
+Ignorance of the law is not a defense. Research responsibly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"With great knowledge comes great responsibility."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Maintained by @nikhiltomar2712 — github.com/nikhiltomar2712
