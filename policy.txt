@@ -1,0 +1,205 @@
+# Vulnerability Disclosure Policy (VDP)
+
+**Repository:** github.com/nikhiltomar2712  
+**Maintainer:** Nikhil Tomar  
+**Effective Date:** 2026  
+**Policy Version:** 1.0
+
+---
+
+## 1. Purpose
+
+This Vulnerability Disclosure Policy (VDP) establishes clear guidelines for how security
+researchers, contributors, and users should report potential security concerns found within
+this repository. It defines what is in scope, how to report, what to expect in return, and
+what protections apply to good-faith reporters.
+
+---
+
+## 2. Commitment
+
+As the maintainer of this repository, I commit to:
+
+  - Respond to valid security reports promptly and professionally
+  - Treat all reporters with respect and transparency
+  - Not pursue legal action against researchers acting in good faith
+  - Credit reporters publicly (with their consent)
+  - Fix validated issues as quickly as reasonably possible
+
+---
+
+## 3. Scope
+
+### 3.1 In Scope
+
+The following are considered valid security concerns for this repository:
+
+  [1] Accidentally committed secrets
+      - API keys, tokens, passwords, private keys, or credentials
+      - Environment files (.env) with real values
+      - Hard-coded authentication data
+
+  [2] Unsafe or malicious code
+      - Scripts that could cause unintended harm if run
+      - Obfuscated code with unclear intent
+      - Dependencies with known critical CVEs
+
+  [3] Dangerous links or redirects
+      - Links pointing to phishing sites or malware
+      - Broken links to previously trusted resources now compromised
+
+  [4] Privacy concerns
+      - Personally Identifiable Information (PII) committed accidentally
+      - Real IP addresses, internal hostnames, or network diagrams
+
+### 3.2 Out of Scope
+
+The following are NOT considered security vulnerabilities in this context:
+
+  - Educational content about known attack techniques (expected content)
+  - References to CVEs and public exploits used for study purposes
+  - Intentionally vulnerable examples clearly labeled as such
+  - Suggestions about improving note quality or fixing typos
+    (please use GitHub Issues for these)
+
+---
+
+## 4. Reporting Process
+
+### Step 1 — Assess the Issue
+Before reporting, confirm the issue is:
+  - Present in this specific repository
+  - Not already publicly disclosed or tracked
+  - Reproducible or clearly observable
+
+### Step 2 — Report Privately
+Do NOT open a public issue for security vulnerabilities.
+
+Preferred channel:
+  > GitHub Security Advisory (private)
+  > Repository → Security tab → "Report a vulnerability"
+
+Alternative channel:
+  > Email: nikhiltomar2712@gmail.com
+  > Subject: [SECURITY] Brief description of the issue
+
+### Step 3 — Include These Details
+Your report should contain:
+
+  (a) Title         — Short description of the issue
+  (b) Location      — File path, line number, or URL where found
+  (c) Description   — Clear explanation of the vulnerability
+  (d) Reproduction  — Step-by-step instructions to confirm the issue
+  (e) Impact        — What could happen if this is not fixed?
+  (f) Evidence      — Screenshots, logs, or code snippets (if safe to share)
+  (g) Suggestion    — Optional: how you would recommend fixing it
+
+---
+
+## 5. Response SLA (Service Level Agreement)
+
+  ┌────────────────────────────────────────┬─────────────────────┐
+  │ Action                                 │ Target Timeline     │
+  ├────────────────────────────────────────┼─────────────────────┤
+  │ Acknowledge receipt of report          │ Within 48 hours     │
+  │ Confirm validity of the vulnerability  │ Within 5 days       │
+  │ Provide remediation plan               │ Within 7 days       │
+  │ Deploy fix and notify reporter         │ Within 14 days      │
+  │ Public disclosure (if agreed)          │ After fix deployed  │
+  └────────────────────────────────────────┴─────────────────────┘
+
+Note: Timelines are best-effort for a personal learning repository.
+      Complex issues may take longer; communication will be maintained.
+
+---
+
+## 6. Good Faith Principles
+
+This policy follows the principle of coordinated vulnerability disclosure.
+
+A researcher is acting in GOOD FAITH if they:
+
+  ✔  Report the issue privately before any public disclosure
+  ✔  Provide enough information to reproduce and fix the issue
+  ✔  Do not exploit the vulnerability beyond what is needed to confirm it
+  ✔  Do not access, copy, or delete any data that does not belong to them
+  ✔  Do not perform any action that degrades the repository or its users
+
+A researcher is NOT acting in good faith if they:
+
+  ✘  Publicly disclose before the maintainer has had time to respond
+  ✘  Use the vulnerability for personal gain
+  ✘  Demand payment or make threats
+  ✘  Perform automated scanning or fuzzing without permission
+
+---
+
+## 7. Confidentiality
+
+All security reports received will be treated as confidential. Details will not
+be shared publicly without the reporter's explicit consent, except where legally
+required.
+
+The reporter's identity will be kept private unless they request public credit.
+
+---
+
+## 8. Recognition
+
+Valid reports that lead to a fix will be acknowledged in:
+
+  - The repository's commit message or PR description
+  - A CONTRIBUTORS or ACKNOWLEDGEMENTS section (if applicable)
+  - Verbal thanks in any public write-up about the fix
+
+No monetary bounties are offered for this personal learning repository.
+
+---
+
+## 9. Legal Safe Harbor
+
+This repository's maintainer will not initiate legal action against anyone
+who discovers and responsibly reports a security issue under this policy,
+provided the reporter:
+
+  - Acts within the defined scope
+  - Follows the good-faith principles outlined in Section 6
+  - Does not violate any applicable law in the process of research
+
+This safe harbor is limited to security research activities only.
+
+---
+
+## 10. Disclaimer
+
+This repository contains educational content about cybersecurity. All notes,
+tools, and techniques documented here are intended for:
+
+  - Defensive security learning
+  - Certified lab environments (TryHackMe, HackTheBox, DVWA, etc.)
+  - Systems owned by or explicitly authorized to the researcher
+
+Any misuse of this content for unauthorized access to systems is solely the
+responsibility of the individual and may violate applicable laws including
+(but not limited to) India's IT Act 2000, the CFAA (USA), or the Computer
+Misuse Act (UK).
+
+---
+
+## 11. Contact
+
+  Name    : Nikhil Tomar
+  GitHub  : https://github.com/nikhiltomar2712
+  Email   : nikhiltomar2712@gmail.com
+
+---
+
+## 12. Policy Updates
+
+This policy may be updated over time. The version number and effective date
+at the top of this document will reflect any changes. Major changes will be
+noted in the repository commit history.
+
+---
+
+"Security is not a product, but a process." — Bruce Schneier
