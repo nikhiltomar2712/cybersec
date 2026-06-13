@@ -1,5 +1,4 @@
 <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" 
-     alt="Cover" 
      />
      
 # 🔐 CyberSec Learning Notes & Toolkit
