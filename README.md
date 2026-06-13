@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" alt="CyberSec Toolkit" width="200">
+  <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" alt="CyberSec Toolkit" width="2000">
 </p>
 
 # 🔐 CyberSec Learning Notes & Toolkit
