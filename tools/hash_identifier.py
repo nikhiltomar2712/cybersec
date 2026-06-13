@@ -120,3 +120,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+from tools.python.hash_identifier import identify_hash, crack_hash
+
+# Identify hash type
+hash_type = identify_hash('5d41402abc4b2a76b9719d911017c592')
+print(f"Hash type: {hash_type}")  # Output: MD5
+
+# Crack hash with wordlist
+result = crack_hash(
+    hash_value='5d41402abc4b2a76b9719d911017c592',
+    wordlist_path='rockyou.txt',
+    limit=100000
+)
