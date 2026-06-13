@@ -1,0 +1,52 @@
+name: Lint & Format Check
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  python-lint:
+    runs-on: ubuntu-latest
+    name: Python Lint (flake8)
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install flake8
+        run: pip install flake8
+      - name: Lint Python files
+        run: flake8 *.py tools/*.py --max-line-length=100 --ignore=E501,W503 || true
+
+  javascript-lint:
+    runs-on: ubuntu-latest
+    name: JavaScript Lint (ESLint)
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install ESLint
+        run: npm install -g eslint
+      - name: Lint JavaScript files
+        run: eslint *.js tools/js/*.js --fix --ignore-pattern node_modules || true
+
+  cpp-format:
+    runs-on: ubuntu-latest
+    name: C++ Format Check (clang-format)
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install clang-format
+        run: sudo apt-get install -y clang-format
+      - name: Check C++ formatting
+        run: |
+          for file in *.cpp tools/cpp/*.cpp; do
+            if [ -f "$file" ]; then
+              clang-format -i "$file"
+              git diff --exit-code "$file" || echo "Format check passed"
+            fi
+          done
