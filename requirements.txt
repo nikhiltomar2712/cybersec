@@ -1,0 +1,33 @@
+# Core Dependencies
+
+# Network Tools
+requests==2.31.0
+urllib3==2.0.7
+pycurl==7.45.2
+
+# DNS & Security
+dnspython==2.4.2
+PyCryptodome==3.18.0
+hashlib==1.0
+
+# Async & Threading
+aiohttp==3.9.1
+aiofiles==23.2.1
+
+# CLI & Utilities
+click==8.1.7
+colorama==0.4.6
+rich==13.7.0
+
+# Development
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.12.0
+flake8==6.1.0
+isort==5.13.2
+bandit==1.7.5
+mypy==1.7.1
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
