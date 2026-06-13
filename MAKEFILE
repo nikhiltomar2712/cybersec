@@ -1,0 +1,145 @@
+# Cybersec Toolkit Makefile
+
+.PHONY: help install test lint format clean build run docker-up docker-down
+
+help:
+	@echo "Cybersec Toolkit - Available Commands"
+	@echo ""
+	@echo "Setup:"
+	@echo "  make install          Install all dependencies"
+	@echo "  make install-dev      Install dev dependencies"
+	@echo ""
+	@echo "Development:"
+	@echo "  make test             Run all tests"
+	@echo "  make test-py          Run Python tests"
+	@echo "  make test-js          Run JavaScript tests"
+	@echo "  make lint             Run all linters"
+	@echo "  make lint-py          Lint Python code"
+	@echo "  make lint-js          Lint JavaScript code"
+	@echo "  make lint-cpp         Check C++ formatting"
+	@echo "  make format           Format all code"
+	@echo "  make format-py        Format Python code"
+	@echo "  make format-js        Format JavaScript code"
+	@echo "  make security         Run security scans"
+	@echo ""
+	@echo "Building:"
+	@echo "  make build            Build C++ tools"
+	@echo "  make build-docker     Build Docker image"
+	@echo "  make clean            Clean build artifacts"
+	@echo ""
+	@echo "Docker:"
+	@echo "  make docker-up        Start Docker containers"
+	@echo "  make docker-down      Stop Docker containers"
+	@echo "  make docker-logs      View container logs"
+	@echo ""
+	@echo "Documentation:"
+	@echo "  make docs             Generate documentation"
+	@echo "  make coverage         Generate coverage report"
+
+# Setup
+install:
+	@echo "Installing dependencies..."
+	pip install -r requirements.txt
+	npm install
+
+make install-dev:
+	@echo "Installing dev dependencies..."
+	pip install -r requirements.txt
+	pip install pytest pytest-cov black flake8 isort mypy
+	npm install --save-dev
+
+# Testing
+test: test-py test-js
+	@echo "All tests completed!"
+
+test-py:
+	@echo "Running Python tests..."
+	pytest tests/ -v --cov=tools/python --cov-report=html
+
+test-js:
+	@echo "Running JavaScript tests..."
+	npm test
+
+# Linting
+lint: lint-py lint-js lint-cpp
+	@echo "Linting complete!"
+
+lint-py:
+	@echo "Linting Python..."
+	flake8 tools/python/ --max-line-length=100 || true
+
+mypy tools/python/ || true
+
+lint-js:
+	@echo "Linting JavaScript..."
+	npx eslint tools/js/ || true
+
+lint-cpp:
+	@echo "Checking C++ formatting..."
+	clang-format --dry-run -i tools/cpp/*.cpp || echo "clang-format not available"
+
+# Formatting
+format: format-py format-js
+	@echo "Formatting complete!"
+
+format-py:
+	@echo "Formatting Python..."
+	black tools/python/
+	isort tools/python/
+
+format-js:
+	@echo "Formatting JavaScript..."
+	npx prettier --write tools/js/
+
+# Security
+security:
+	@echo "Running security scans..."
+	@echo "Python security (Bandit)..."
+	bandit -r tools/python/ -f json -o bandit-report.json || true
+	@echo "Node security (npm audit)..."
+	npm audit || true
+	@echo "Security scan complete!"
+
+# Building
+build:
+	@echo "Building C++ tools..."
+	mkdir -p build
+	cd build && cmake .. && make
+
+clean:
+	@echo "Cleaning build artifacts..."
+	rm -rf build/
+	rm -rf dist/
+	rm -rf *.o *.a *.so
+	rm -rf __pycache__ .pytest_cache .coverage
+	rm -rf node_modules
+	find . -type d -name __pycache__ -exec rm -r {} + 2>/dev/null || true
+	@echo "Clean complete!"
+
+# Docker
+build-docker:
+	@echo "Building Docker image..."
+	docker-compose build
+
+docker-up:
+	@echo "Starting containers..."
+	docker-compose up -d
+	docker-compose ps
+
+docker-down:
+	@echo "Stopping containers..."
+	docker-compose down
+
+docker-logs:
+	docker-compose logs -f
+
+# Documentation
+docs:
+	@echo "Documentation is in tools/README.md and DEVELOPMENT.md"
+
+coverage:
+	@echo "Generating coverage report..."
+	pytest tests/ --cov=tools/python --cov-report=html
+	@echo "Coverage report generated: htmlcov/index.html"
+
+.DEFAULT_GOAL := help
