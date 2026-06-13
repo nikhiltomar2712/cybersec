@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" alt="CyberSec Toolkit" width="200">
+</p>
+
 # 🔐 CyberSec Learning Notes & Toolkit
 
 [![Security Policy](https://img.shields.io/badge/Security-Policy-red?style=for-the-badge&logo=github)](./security.md)
