@@ -220,3 +220,53 @@ Aspiring DevOps / Cloud Engineer & Cybersecurity Enthusiast
 ---
 
 *Built with curiosity. Shared for the community. Used responsibly.*
+
+# CyberSec Toolkit
+
+A collection of ethical hacking and security tools for educational purposes.
+
+## Requirements
+- Python 3.7+
+- Node.js 14+
+- C++17 compiler (g++/clang++)
+
+## Python Tools
+
+| Tool | Description | Usage |
+|------|-------------|-------|
+| `port_scanner.py` | Async TCP/UDP scanner | `python3 port_scanner.py 192.168.1.1 -p 1-1024` |
+| `hash_identifier.py` | Hash ID + cracker | `python3 hash_identifier.py &lt;hash&gt; -w wordlist.txt` |
+| `subdomain_enum.py` | DNS subdomain enum | `python3 subdomain_enum.py example.com -w subs.txt` |
+| `password_analyzer.py` | Password strength check | `python3 password_analyzer.py "MyP@ssw0rd"` |
+| `forensics_toolkit.py` | File forensics | `python3 forensics_toolkit.py file.bin` |
+
+## JavaScript Tools
+
+| Tool | Description | Usage |
+|------|-------------|-------|
+| `payload_generator.js` | XSS/SQLi payloads | `node payload_generator.js xss wafBypass` |
+| `recon.js` | Reconnaissance | `node recon.js all example.com` |
+| `jwt_tool.js` | JWT analyzer | `node jwt_tool.js analyze &lt;token&gt;` |
+
+## C++ Tools
+
+| Tool | Description | Compile |
+|------|-------------|---------|
+| `crypto_tools.cpp` | Crypto utilities | `g++ -std=c++17 -O2 -o crypto_tools crypto_tools.cpp` |
+| `port_scanner.cpp` | Threaded scanner | `g++ -std=c++17 -O2 -pthread -o port_scanner port_scanner.cpp` |
+| `memory_scanner.cpp` | Memory forensics | `g++ -std=c++17 -O2 -o memory_scanner memory_scanner.cpp` |
+
+## Quick Start
+
+```bash
+# TCP scan
+python3 port_scanner.py scanme.nmap.org -p 1-1000
+
+# Full recon
+node recon.js all target.com
+
+# Crypto analysis
+./crypto_tools bruterot "Uryyb Jbeyq"
+
+# File forensics
+python3 forensics_toolkit.py suspicious.exe
