@@ -1,7 +1,8 @@
-<p align="center">
-  <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" alt="Cover Image" style="width:100%; max-width:1200px;" />
-</p>
-
+<img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" 
+     alt="Cover" 
+     width="100%" 
+     height="250" />
+     
 # 🔐 CyberSec Learning Notes & Toolkit
 
 [![Security Policy](https://img.shields.io/badge/Security-Policy-red?style=for-the-badge&logo=github)](./security.md)
