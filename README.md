@@ -178,3 +178,182 @@ Aspiring DevOps / Cloud Engineer & Cybersecurity Enthusiast
 <div align="center">
 <sub>Built with curiosity. Shared for the community. Used responsibly.</sub>
 </div>
+
+# 🧰 CyberSec Tools
+
+All scripts in this directory are for **educational use only** in authorised lab environments.  
+See [`../ETHICAL_USE.txt`](../ETHICAL_USE.txt) before running anything.
+
+---
+
+## 🐍 Python Tools
+
+### `port_scanner.py` — Async TCP Port Scanner
+Uses `asyncio` for fast concurrent port scanning without threading.
+
+```bash
+# Scan default range (1-1024)
+python3 port_scanner.py 192.168.1.1
+
+# Custom port range
+python3 port_scanner.py scanme.nmap.org --ports 1-1024
+
+# Specific ports
+python3 port_scanner.py 10.0.0.1 --ports 22,80,443,3306,8080
+
+# Full scan with output
+python3 port_scanner.py 10.0.0.1 --ports 1-65535 --threads 500 --timeout 1.0 --output scan.txt
+```
+
+**Requirements:** Python 3.7+ (stdlib only)
+
+---
+
+### `hash_identifier.py` — Hash Identifier & Cracker
+Identifies hash types by pattern and runs optional dictionary attacks.
+
+```bash
+# Identify only
+python3 hash_identifier.py 5f4dcc3b5aa765d61d8327deb882cf99
+
+# Identify + crack
+python3 hash_identifier.py 5f4dcc3b5aa765d61d8327deb882cf99 --wordlist rockyou.txt
+
+# Force type
+python3 hash_identifier.py <sha256_hash> --type SHA-256 --wordlist words.txt
+```
+
+Supported identification: `MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3-256, SHA3-512, bcrypt, NTLM, MySQL4, MySQL5`
+
+**Requirements:** Python 3.6+ (stdlib only)
+
+---
+
+### `subdomain_enum.py` — Subdomain Enumerator
+Brute-forces subdomains via async DNS resolution. Includes a built-in ~100-entry wordlist.
+
+```bash
+# Built-in wordlist
+python3 subdomain_enum.py example.com
+
+# Custom wordlist
+python3 subdomain_enum.py example.com --wordlist /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+
+# With output file
+python3 subdomain_enum.py example.com --threads 100 --output found.txt
+```
+
+**Requirements:** Python 3.7+ (stdlib only)
+
+---
+
+## 🌐 JavaScript Tools (Node.js)
+
+### `js/payload_generator.js` — Web Payload Generator
+Generates XSS and SQL injection payloads with multiple encoding options.
+
+```bash
+# XSS payloads
+node payload_generator.js xss
+node payload_generator.js xss --encode url
+node payload_generator.js xss --encode base64
+
+# SQLi payloads
+node payload_generator.js sqli --db mysql
+node payload_generator.js sqli --db postgres
+node payload_generator.js sqli --db mssql
+
+# Encoding utilities
+node payload_generator.js encode "text" --type base64
+node payload_generator.js encode "<script>" --type html
+node payload_generator.js decode "dGV4dA==" --type base64
+```
+
+Available encodings: `base64, url, urlFull, html, hex, unicode, rot13`
+
+**Requirements:** Node.js 14+ (stdlib only)
+
+---
+
+### `js/recon.js` — Network Recon Tool
+DNS enumeration, HTTP header analysis, and robots.txt/sitemap extraction.
+
+```bash
+# DNS records (A, MX, NS, TXT, SOA, CNAME)
+node recon.js dns     example.com
+
+# HTTP headers + security audit
+node recon.js headers example.com
+
+# robots.txt and sitemap.xml
+node recon.js robots  example.com
+
+# All modules
+node recon.js all     example.com
+```
+
+**Requirements:** Node.js 14+ (stdlib only, no npm install needed)
+
+---
+
+## ⚙️ C++ Tools
+
+### `cpp/crypto_tools.cpp` — Crypto & Encoding Tools
+Classic cryptography algorithms used heavily in CTF challenges.
+
+```bash
+# Compile
+g++ -std=c++17 -O2 -o crypto_tools cpp/crypto_tools.cpp
+
+# Caesar cipher
+./crypto_tools caesar enc "Hello World" 13
+./crypto_tools caesar dec "Uryyb Jbeyq" 13
+
+# ROT-13 (symmetric)
+./crypto_tools rot13 "Hello World"
+
+# Vigenère cipher
+./crypto_tools vigenere enc "HELLO" "KEY"
+./crypto_tools vigenere dec "RIJVS" "KEY"
+
+# XOR cipher (outputs hex for safe display)
+./crypto_tools xor enc "secret" "k"
+./crypto_tools xor dec "1a160b1a17" "k"
+
+# Base64
+./crypto_tools base64 enc "Hello World"
+./crypto_tools base64 dec "SGVsbG8gV29ybGQ="
+
+# Frequency analysis (aids breaking monoalphabetic substitution ciphers)
+./crypto_tools freq "URYYB JBEYQ"
+
+# Brute-force all 26 Caesar rotations
+./crypto_tools bruterot "Uryyb Jbeyq"
+```
+
+---
+
+### `cpp/port_scanner.cpp` — Fast C++ Port Scanner
+Thread-pool TCP port scanner. Useful for large port ranges where speed matters.
+
+```bash
+# Compile
+g++ -std=c++17 -O2 -pthread -o port_scanner cpp/port_scanner.cpp
+
+# Basic scan
+./port_scanner 192.168.1.1
+
+# Custom range + threads
+./port_scanner scanme.nmap.org --ports 1-1024
+
+# Full scan
+./port_scanner 10.0.0.5 --ports 1-65535 --threads 500 --timeout 500
+```
+
+---
+
+## ⚠️ Ethical Use Reminder
+
+> All tools in this repository are for **learning and authorised testing only**.
+> Running these against systems you do not own or have explicit written permission to test is **illegal**.
+> See `ETHICAL_USE.txt` for the full policy.
