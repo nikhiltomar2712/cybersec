@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: cybersec-toolkit
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/__pycache__
+    ports:
+      - "8000:8000"
+      - "5000:5000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - NODE_ENV=development
+    networks:
+      - cybersec
+
+  redis:
+    image: redis:7-alpine
+    container_name: cybersec-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - cybersec
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: cybersec-db
+    environment:
+      POSTGRES_DB: cybersec
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev-password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cybersec
+
+volumes:
+  postgres_data:
+
+networks:
+  cybersec:
+    driver: bridge
