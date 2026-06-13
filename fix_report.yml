@@ -1,0 +1,58 @@
+name: "📝 Fix / Correction"
+description: "Report an error, outdated info, or broken link in the notes"
+title: "[FIX] "
+labels: ["fix", "needs-review"]
+assignees:
+  - nikhiltomar2712
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve this repository! Please fill in as much detail as you can.
+
+  - type: input
+    id: location
+    attributes:
+      label: "📂 File / Location"
+      description: "Which file contains the error? Include the file path and line number if possible."
+      placeholder: "e.g. web-security/sql-injection.md, line 42"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: "❌ Current (Incorrect) Content"
+      description: "Paste or describe what is currently written."
+      placeholder: "The note says X..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested
+    attributes:
+      label: "✅ Suggested Fix"
+      description: "What should it say instead?"
+      placeholder: "It should say Y because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reference
+    attributes:
+      label: "🔗 Reference / Source"
+      description: "Link to a source that confirms the correct information (if available)."
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have checked that this issue does not already exist"
+          required: true
+        - label: "This is a factual/technical error, not a personal preference"
+          required: true
