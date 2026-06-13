@@ -1,0 +1,29 @@
+name: Performance Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+    name: Benchmark Tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest-benchmark pytest
+      - name: Run performance tests
+        run: |
+          pytest tests/ -v --benchmark-only || true
+      - name: Measure compilation time
+        run: |
+          time g++ -std=c++17 -O2 -o /tmp/crypto_tools tools/cpp/crypto_tools.cpp || true
+          time g++ -std=c++17 -O2 -pthread -o /tmp/port_scanner tools/cpp/port_scanner.cpp || true
