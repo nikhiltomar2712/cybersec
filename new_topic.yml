@@ -1,0 +1,81 @@
+name: "💡 New Topic / Tool Suggestion"
+description: "Suggest a new topic, technique, or resource to add to the notes or tools"
+title: "[TOPIC] "
+labels: ["enhancement", "new-content"]
+assignees:
+  - nikhiltomar2712
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for something that should be covered here? Fill in the details below and I'll review it!
+
+  - type: input
+    id: topic_name
+    attributes:
+      label: "📌 Topic / Tool Name"
+      description: "What is the topic, technique, or tool?"
+      placeholder: "e.g. XXE Injection, DNS Zone Transfer, SSRF bypass techniques"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "📂 Category"
+      description: "Which section does this belong to?"
+      options:
+        - "Networking"
+        - "Web Security"
+        - "Linux / Privilege Escalation"
+        - "Windows / Active Directory"
+        - "Tools & Scripts"
+        - "CTF Techniques"
+        - "Defensive / Blue Team"
+        - "Certifications"
+        - "Resources"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: "🗂️ Content Type"
+      description: "What kind of addition are you suggesting?"
+      options:
+        - "Notes / Cheatsheet"
+        - "Code / Script (Python)"
+        - "Code / Script (JavaScript)"
+        - "Code / Script (C++)"
+        - "Resource link"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 Why Should This Be Added?"
+      description: "Brief explanation of what it covers and why it's useful for learning."
+      placeholder: "This topic is important because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: "🔗 Useful References"
+      description: "Any links, writeups, or resources that would help write the notes."
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: "Would you like to contribute this content?"
+      options:
+        - label: "Yes — I can open a PR with the notes/code"
+        - label: "No — just suggesting the idea"
