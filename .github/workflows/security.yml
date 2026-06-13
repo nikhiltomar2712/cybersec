@@ -1,0 +1,62 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly
+
+jobs:
+  bandit:
+    runs-on: ubuntu-latest
+    name: Python Security (Bandit)
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Bandit
+        run: pip install bandit
+      - name: Run Bandit security scan
+        run: bandit -r . -f json -o bandit-report.json || true
+      - name: Display results
+        run: bandit -r . || true
+
+  dependency-check:
+    runs-on: ubuntu-latest
+    name: Dependency Vulnerabilities
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Python dependencies
+        run: |
+          pip install safety
+          safety check --json || true
+      - name: Check Node.js dependencies
+        if: hashFiles('package.json') != ''
+        run: |
+          npm install --prefer-offline
+          npm audit --audit-level=moderate || true
+
+  codeql:
+    name: CodeQL Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['cpp', 'python', 'javascript']
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
