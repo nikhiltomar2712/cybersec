@@ -1,6 +1,6 @@
-<p align="center">
-  <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" alt="CyberSec Toolkit" width="20000">
-</p>
+<a href="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg">
+  <img src="https://cdn.corenexis.com/f/CcWbm2cPx6K.svg" alt="Project Cover" width="100%" />
+</a>
 
 # 🔐 CyberSec Learning Notes & Toolkit
 
